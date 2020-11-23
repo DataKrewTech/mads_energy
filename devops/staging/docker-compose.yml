@@ -87,6 +87,27 @@ services:
       - database
       - elastic_search
       - mqtt_broker
+
+  nodered:
+    image: nodered/node-red-docker:slim
+    container_name: nodered
+    ports:
+     - "1880:1880"
+    volumes:
+     - ./data/nodered:/data
+    depends_on:
+     - mqtt
+    user: root:root
+  mosquitto:
+   image: "eclipse-mosquitto"
+   container_name: mosquitto
+   ports:
+    - "1881:1881"
+    - "9001:9001"
+   volumes:
+    - ./data/mosquitto/config:/mosquitto/config
+    - ./data/mosquitto/data:/mosquitto/data
+    - ./data/mosquitto/log:/mosquitto/log
   
   nginx:
     image: nginx:1.17-alpine
