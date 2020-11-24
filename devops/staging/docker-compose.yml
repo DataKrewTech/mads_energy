@@ -96,8 +96,9 @@ services:
     volumes:
      - ./data/nodered:/data
     depends_on:
-     - mqtt
+     - mosquitto
     user: root:root
+    
   mosquitto:
    image: "eclipse-mosquitto"
    container_name: mosquitto
