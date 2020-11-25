@@ -87,6 +87,7 @@ services:
       - database
       - elastic_search
       - mqtt_broker
+      - nodered
 
   nodered:
     image: nodered/node-red-docker:slim
