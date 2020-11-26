@@ -65,7 +65,7 @@ defmodule VernemqMadsPlugin.MixProject do
         database: "acqdat_core_dev",
         hostname: System.get_env("DB_HOST", "localhost"),
         port: System.get_env("DB_PORT", "5432"),
-        pool_size: 10
+        pool_size: 5
       ]
     }
   end
